@@ -1,0 +1,114 @@
+### register admin
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+    "name" : "admin",
+    "email" : "admin@gmail.com",
+    "password" : "admin123",
+    "role" : "admin"
+}
+
+### register operator
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+    "name" : "operator",
+    "email" : "operator@gmail.com",
+    "password" : "operator123",
+    "role" : "operator"
+}
+
+### login
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+    "email" : "admin@gmail.com",
+    "password" : "admin123"
+}
+
+### add product1 
+POST http://localhost:5000/api/products
+Content-Type: application/json
+
+{
+    "name": "Keyboard",
+    "category": "Electronics",
+    "price": 800,
+    "description": "USB keyboard",
+    "stock_on_hand": 20,
+    "min_level": 5
+}
+
+### add product2 
+POST http://localhost:5000/api/products
+Content-Type: application/json
+
+{
+    "name": "Mouse",
+    "category": "Electronics",
+    "price": 200,
+    "description": "wireless mouse",
+    "stock_on_hand": 50,
+    "min_level": 10
+}
+
+### display all product
+GET http://localhost:5000/api/products
+
+### display one product
+GET http://localhost:5000/api/products/6ade6022bcd4be731db01265
+
+### update product
+PUT http://localhost:5000/api/products/6ade6022bcd4be731db01265
+Content-Type: application/json
+
+{
+    "name": "Keyboard",
+    "category": "Electronics",
+    "price": 700,
+    "description": "USB keyboard",
+    "stock_on_hand": 20,
+    "min_level": 5
+}
+
+### delete product
+DELETE http://localhost:5000/api/products/6ade6022bcd4be731db01265
+
+### get low stock
+GET http://localhost:5000/api/products/low-stock
+
+### get category report
+GET http://localhost:5000/api/products/category/Electronics
+
+### add receipt
+POST http://localhost:5000/api/transactions
+Content-Type: application/json
+
+{
+    "product": "6ade6511eb68eb814c5a32c9",
+    "operator": "6ade5e89d7c57ea941f4548e",
+    "type": "Receipt",
+    "quantity": 10
+}
+
+### add issue
+POST http://localhost:5000/api/transactions
+Content-Type: application/json
+
+{
+    "product": "6ade77ef2e6222621447bd32",
+    "operator": "6ade5e89d7c57ea941f4548e",
+    "type": "Issue",
+    "quantity": 5
+}
+
+### transactions
+GET http://localhost:5000/api/transactions
+
+### high-moving
+GET http://localhost:5000/api/transactions/highest-moving
+
+
